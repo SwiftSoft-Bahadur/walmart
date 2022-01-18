@@ -1,0 +1,54 @@
+    <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+      <mat-card class="shipping-card">
+        <mat-card-header >
+          <mat-card-title></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+                  Email <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Password" formControlName="password">
+                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                  Password <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+
+              <a routerLink="/signup">
+                Not have account?
+              </a>
+            </div>
+          </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="full-width" mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+
+        <p class="text-center"><i class="" aria-hidden="true"></i>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-google light-primary-text"></i></a>
+          <a href="#" class="mx-3" role="button"><i class="fab fa-facebook light-primary-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fab fa-github light-primary-text"></i></a>
+          
+        </p>
+
+        <hr class="m-2">
+      </mat-card>
+
+
+    </form>
