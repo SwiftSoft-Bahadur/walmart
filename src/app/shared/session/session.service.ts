@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -55,9 +56,14 @@ export class SessionService {
       return JSON.parse(cart);
     }
   }
+
   deleteCart(index: any) {
     this.arrCart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(this.arrCart));
+    localStorage.setItem("cart", JSON.stringify(this.arrCart))
+  }
+
+  clearCart() {
+    localStorage.clear();
   }
   // cart localStorage end
 

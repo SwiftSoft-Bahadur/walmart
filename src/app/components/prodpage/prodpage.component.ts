@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/shared/session/session.service';
 
 @Component({
   selector: 'app-prodpage',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _sessionService:SessionService) { }
 
   ngOnInit(): void {
   }
 
+
+  addToCart() {
+    this._sessionService.setCart("Works!");
+  }
 }

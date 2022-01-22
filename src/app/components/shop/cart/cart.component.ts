@@ -18,7 +18,11 @@ export class CartComponent implements OnInit {
     this.cartItems = this._sessionService.getCart();
   }
 
-  removeCartItem(index:any) {
+  removeCartItem(index: number) {
     this._sessionService.deleteCart(index);
+  }
+
+  clearCart() {
+    this._sessionService.clearCart();
   }
 }
