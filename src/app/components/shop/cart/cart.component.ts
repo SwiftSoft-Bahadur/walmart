@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/shared/session/session.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
-  constructor() { }
+  cartItems: any[] = [];
+  constructor(private _sessionService: SessionService) { }
 
   ngOnInit(): void {
+    this.getCartItems();
   }
 
+  private getCartItems() {
+    this.cartItems = this._sessionService.getCart();
+  }
+
+  removeCartItem(index:any) {
+    this._sessionService.deleteCart(index);
+  }
 }

@@ -5,38 +5,61 @@ import { Injectable } from '@angular/core';
 })
 export class SessionService {
 
+  arrCart: any[] = [];
+
   constructor() { }
 
   getUser() {
-    let user = localStorage.getItem('user');
+    let user = sessionStorage.getItem('user');
     if (user) {
       return JSON.parse(user);
     }
   }
 
   setUser(user: any) {
-    localStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem('user', JSON.stringify(user));
   }
 
   deleteUser() {
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
     window.location.href = "";
   }
 
   getToken() {
-    let user = localStorage.getItem('token');
+    let user = sessionStorage.getItem('token');
     if (user) {
       return JSON.parse(user);
     }
   }
 
   setToken(user: any) {
-    localStorage.setItem('token', JSON.stringify(user));
+    sessionStorage.setItem('token', JSON.stringify(user));
   }
 
   deleteToken() {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     window.location.href = "";
   }
+
+  // cart localStorage
+  setCart(cartRef: any) {
+    if (this.arrCart.indexOf(cartRef) == -1) {
+      this.arrCart.push(cartRef)
+    }
+    localStorage.setItem("cart", JSON.stringify(this.arrCart))
+  }
+
+  getCart() {
+    let cart = localStorage.getItem('cart')
+    if (cart) {
+      return JSON.parse(cart);
+    }
+  }
+  deleteCart(index: any) {
+    this.arrCart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(this.arrCart));
+  }
+  // cart localStorage end
+
 
 }

@@ -31,8 +31,8 @@
                                     width="300" height="338" />
                             </a>
                             <div class="product-action-vertical">
-                                <a href="#" class="btn-product-icon btn-cart w-icon-cart"
-                                    title="Add to cart"></a>
+                                <a (click)="addToCart(product)" href="#" class="btn-product-icon btn-cart w-icon-cart"
+                                    title="Add to scart"></a>
                                 <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"
                                     title="Add to wishlist"></a>
                                 <a href="#" class="btn-product-icon btn-quickview w-icon-search"
@@ -789,7 +789,8 @@
                                 <img [src]="product.image" alt="Product" width="300" height="338" />
                             </a>
                             <div class="product-action-vertical">
-                                <a routerLink="cart" class="btn-product-icon btn-cart w-icon-cart"
+                                <!-- add to cart -->
+                                <a (click)="addToCart(product)" class="btn-product-icon btn-cart w-icon-cart"
                                     title="Add to cart"></a>
                                 <a routerLink="wishlist" class="btn-product-icon btn-wishlist w-icon-heart"
                                     title="Add to wishlist"></a>
