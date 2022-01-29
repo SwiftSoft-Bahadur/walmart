@@ -18,11 +18,12 @@
                     <p class="welcome-msg"></p>
                 </div>
                 <div class="header-right">
-                    <a routerLink="dashboard"><i class="w-icon-account">
-                        </i>Account
-                        </a>
 
                     <span>{{username}}</span>
+                    <a *ngIf="username?true:false" routerLink="dashboard"><i class="w-icon-account">
+                        </i>Account
+                    </a>
+
                     <a (click)="openDialog()"><i class="w-icon-account">
                         </i>Sign
                         In </a>

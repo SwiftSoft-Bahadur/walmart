@@ -34,15 +34,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/assets/vendor/jquery/jquery.min.js",
-              "src/assets/vendor/jquery.plugin/jquery.plugin.min.js",
-              "src/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js",
-              "src/assets/vendor/zoom/jquery.zoom.js",
-              "src/assets/vendor/jquery.countdown/jquery.countdown.min.js",
-              "src/assets/vendor/magnific-popup/jquery.magnific-popup.min.js",
-              "src/assets/vendor/skrollr/skrollr.min.js",
-              "src/assets/vendor/swiper/swiper-bundle.min.js",
-              "src/assets/js/main.min.js"
+            
             ]
           },
           "configurations": {

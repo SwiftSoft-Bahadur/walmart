@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/product/product.service';
 import { SessionService } from 'src/app/shared/session/session.service';
 
@@ -13,7 +14,9 @@ export class PopularDepartmentsComponent implements OnInit {
   newArrivalProducts: any[] = [];
   constructor(
     private _productService: ProductService,
-    private _sessionService: SessionService
+    private _sessionService: SessionService,
+    private _activateRoute: ActivatedRoute,
+    private _router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -22,8 +25,17 @@ export class PopularDepartmentsComponent implements OnInit {
   }
 
 
-  addToCart(product:any) {
+  addToCart(product: any) {
     this._sessionService.setCart(product);
   }
 
+  setCookie(wishlist: any) {
+    this._sessionService.setCookie("wishlist", wishlist, 30);
+    let p: any = this._sessionService.getCookie('wishlist')
+    console.log(JSON.parse(p));
+  }
+
+  
 }
+
+

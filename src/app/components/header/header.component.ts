@@ -13,7 +13,10 @@ export class HeaderComponent implements OnInit {
   categories: any[] = [];
   username: any
 
-  constructor(private _CategoryService: CategoryService, public dialog: MatDialog, private _session: SessionService) { }
+  constructor(
+    private _CategoryService: CategoryService,
+    public dialog: MatDialog,
+    private _session: SessionService) { }
 
   ngOnInit(): void {
     this._CategoryService.indexCategory().subscribe((res: any[]) => this.categories = res);

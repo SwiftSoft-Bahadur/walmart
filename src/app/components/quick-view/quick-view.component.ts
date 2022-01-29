@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/shared/product/product.service';
 
 @Component({
   selector: 'app-quick-view',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quick-view.component.css']
 })
 export class QuickViewComponent implements OnInit {
-
+  newArrivalProducts: any
   constructor() { }
 
   ngOnInit(): void {
   }
-
+ 
 }
