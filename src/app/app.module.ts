@@ -41,6 +41,9 @@ import { MatCardModule } from '@angular/material/card';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SortPipe } from './pipes/sort/sort.pipe';
+import {MatIconModule} from '@angular/material/icon'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +72,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AccountComponent,
     SignupComponent,
     DashboardComponent,
+    SortPipe,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -83,7 +87,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule
   ],
   providers: [
     CategoryService,

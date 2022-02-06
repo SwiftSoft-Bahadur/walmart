@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class SessionService {
 
   arrCart: any[] = [];
+  arrWish: any[] = [];
   cookieCart: any[] = []
   constructor() { }
 
@@ -65,13 +66,38 @@ export class SessionService {
   clearCart() {
     localStorage.clear();
   }
+
+  // wish localStorage
+  setWish(wishRef: any) {
+    if (this.arrWish.indexOf(wishRef) == -1) {
+      this.arrWish.push(wishRef)
+    }
+    localStorage.setItem("wish", JSON.stringify(this.arrWish))
+  }
+
+  getWish() {
+    let wish = localStorage.getItem('wish')
+    if (wish) {
+      return JSON.parse(wish);
+    }
+  }
+
+  deleteWish(index: any) {
+    this.arrWish.splice(index, 1);
+    localStorage.setItem("wish", JSON.stringify(this.arrWish))
+  }
+
+  clearWish() {
+    localStorage.clear();
+  }
   // cart localStorage end
 
   // Wishlist Cookie
   setCookie(name: any, value: any, days: any) {
 
+    
     if (this.cookieCart.indexOf(value) === -1) {
-
+      
       var expires = "";
       if (days) {
         var date = new Date();
@@ -79,8 +105,8 @@ export class SessionService {
         expires = `${"; expires="}${date.toUTCString()}`;
       }
       this.cookieCart.push(value);
-      let CR = [this.cookieCart];
-      document.cookie = `${name}=${JSON.stringify(CR)} ${expires} ${"; path=/"}`;
+      var CR = Array(this.cookieCart)
+      document.cookie += `${name}=${JSON.stringify(CR)} ${expires} ${"; path=/"}`;
     }
 
   }

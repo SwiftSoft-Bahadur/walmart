@@ -15,13 +15,14 @@ export class PopularDepartmentsComponent implements OnInit {
   constructor(
     private _productService: ProductService,
     private _sessionService: SessionService,
-    private _activateRoute: ActivatedRoute,
-    private _router: Router,
   ) { }
 
   ngOnInit(): void {
     this._productService.listFeaturedProduct().subscribe((res: any[]) => this.featuredProducts = res);
     this._productService.newArrival().subscribe((res: any[]) => this.newArrivalProducts = res);
+
+    let p = this._sessionService.getCookie('wishlist')
+    console.log(p);
   }
 
 
@@ -29,13 +30,11 @@ export class PopularDepartmentsComponent implements OnInit {
     this._sessionService.setCart(product);
   }
 
-  setCookie(wishlist: any) {
-    this._sessionService.setCookie("wishlist", wishlist, 30);
-    let p: any = this._sessionService.getCookie('wishlist')
-    console.log(JSON.parse(p));
+  setWishList(wishlist: any) {
+    this._sessionService.setWish(wishlist)
   }
 
-  
+
 }
 
 

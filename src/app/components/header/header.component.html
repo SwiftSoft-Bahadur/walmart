@@ -18,13 +18,11 @@
                     <p class="welcome-msg"></p>
                 </div>
                 <div class="header-right">
-
                     <span>{{username}}</span>
-                    <a *ngIf="username?true:false" routerLink="dashboard"><i class="w-icon-account">
-                        </i>Account
+                    <a *ngIf="username?true:false" routerLink="dashboard" >
+                        <i class="w-icon-account"></i>Account
                     </a>
-
-                    <a (click)="openDialog()"><i class="w-icon-account">
+                    <a (click)="openDialog()"><i class="w-icon-account" >
                         </i>Sign
                         In </a>
                     <span class="delimiter ">/</span>
@@ -48,7 +46,7 @@
                         <div class="select-box">
                             <select id="category" name="category">
                                 <option value="">All Categories</option>
-                                <option *ngFor="let category of categories">{{category.name}}</option>
+                                <option *ngFor="let category of categories | sort">{{category.name}}</option>
                             </select>
                         </div>
                         <input type="text" class="form-control" name="search" id="search" placeholder="Search in..."
@@ -150,7 +148,7 @@
         </div>
         <!-- End of Header Middle -->
 
-        
+
 
     </header>
 
